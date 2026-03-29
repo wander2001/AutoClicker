@@ -19,6 +19,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: 设置 Gradle
+        uses: gradle/actions/setup-gradle@v3
+
       - name: 设置 Android SDK
         uses: android-actions/setup-android@v3
 
