@@ -36,18 +36,20 @@ class ScriptRepository(context: Context) {
 
     // ── 导出到 Uri（SAF） ────────────────────────────────────────────
 
-    fun exportToUri(context: Context, uri: Uri, scriptId: String? = null): Boolean = try {
+    fun exportToUri(context: Context, uri: Uri, scriptId: String? = null): Boolean {
         val data = if (scriptId != null) {
             val s = get(scriptId) ?: return false
             listOf(s).toJson()
         } else {
             getAll().toJson()
         }
-        context.contentResolver.openOutputStream(uri)?.use { os ->
-            OutputStreamWriter(os).use { it.write(data) }
-        }
-        true
-    } catch (e: Exception) { false }
+        return try {
+            context.contentResolver.openOutputStream(uri)?.use { os ->
+                OutputStreamWriter(os).use { it.write(data) }
+            }
+            true
+        } catch (e: Exception) { false }
+    }
 
     // ── 从 Uri 导入 ──────────────────────────────────────────────────
 

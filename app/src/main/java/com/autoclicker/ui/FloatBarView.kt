@@ -6,7 +6,7 @@ import android.graphics.Color
 import android.os.Handler
 import android.os.Looper
 import android.view.*
-import android.view.WindowManager.LayoutParams
+import android.view.WindowManager.LayoutParams as WMLayoutParams
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +22,7 @@ import kotlin.math.roundToInt
 class FloatBarView(
     private val ctx: Context,
     private val wm: WindowManager,
-    private val params: LayoutParams,
+    private val params: WMLayoutParams,
     private val repo: ScriptRepository
 ) : FrameLayout(ctx) {
 
@@ -261,8 +261,8 @@ class FloatBarView(
         AutoClickAccessibilityService.instance?.apply {
             onStateChanged = { state ->
                 handler.post {
-                    isRunning = state.isRunning
-                    runRound = state.currentRound
+                    this@FloatBarView.isRunning = state.isRunning
+                    this@FloatBarView.runRound = state.currentRound
                     updateRunUI()
                 }
             }
