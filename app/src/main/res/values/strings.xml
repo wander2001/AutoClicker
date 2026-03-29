@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AutoClicker</string>
+    <string name="accessibility_service_label">AutoClicker 自动点击服务</string>
+    <string name="accessibility_service_description">AutoClicker 需要无障碍权限以在屏幕上执行自动点击手势，不会读取任何屏幕内容。</string>
+    <string name="notification_channel_name">AutoClicker 悬浮窗</string>
+    <string name="notification_title">AutoClicker 运行中</string>
+    <string name="notification_text">悬浮工具条已显示</string>
+    <string name="pref_scripts">saved_scripts</string>
+</resources>
